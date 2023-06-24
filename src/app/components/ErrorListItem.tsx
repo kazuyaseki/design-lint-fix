@@ -39,7 +39,7 @@ function ErrorListItem(props) {
           />
         </span>
         <span className="error-description">
-          <div className="error-description__message">{error.message}</div>
+          <div className="error-description__message">{error.message}koko</div>
           {error.value ? (
             <div className="current-value">{error.value}</div>
           ) : null}

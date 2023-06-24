@@ -190,7 +190,7 @@ export function checkAutoLayout(node, errors) {
         node,
         "frame",
         "Missing Auto Layout",
-        "Did you forget it?"
+        "Did you forget it??"
       )
     );
   }

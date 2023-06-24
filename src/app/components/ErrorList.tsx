@@ -45,7 +45,9 @@ function ErrorList(props) {
     />
   ));
 
-  return <ul className="errors-list errors-list-panel">{errorListItems}</ul>;
+  return (
+    <ul className="errors-list errors-list-panel">ああああ{errorListItems}</ul>
+  );
 }
 
 export default React.memo(ErrorList);

@@ -86,7 +86,6 @@ function BulkErrorListItem(props) {
             </div>
           </div>
         </span>
-
         {error.nodes.length > 1 ? (
           <ul
             className={
@@ -145,6 +144,17 @@ function BulkErrorListItem(props) {
               }}
             >
               Ignore
+            </li>
+            <li
+              className="select-menu__list-item"
+              key="list-item-2"
+              onClick={event => {
+                event.stopPropagation();
+                handleIgnoreChange(error);
+                hideMenu();
+              }}
+            >
+              Fix
             </li>
           </ul>
         )}
