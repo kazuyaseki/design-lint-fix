@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import Navigation from "./Navigation";
 import NodeList from "./NodeList";
-import Preloader from "./Preloader";
 import PreloaderCSS from "./PreloaderCSS";
 import EmptyState from "./EmptyState";
 import Panel from "./Panel";

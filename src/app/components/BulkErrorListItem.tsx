@@ -61,11 +61,11 @@ function BulkErrorListItem(props) {
     >
       <div className="flex-row">
         <span className="error-type">
-          <img
+          {/* <img
             src={require("../assets/error-type/" +
               error.type.toLowerCase() +
               ".svg")}
-          />
+          /> */}
         </span>
         <span className="error-description">
           {error.nodes.length > 1 ? (

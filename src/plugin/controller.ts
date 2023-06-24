@@ -3,7 +3,9 @@ import {
   checkEffects,
   checkFills,
   checkStrokes,
-  checkType
+  checkType,
+  checkGroup,
+  checkAutoLayout
   // customCheckTextFills,
   // uncomment this as an example of a custom lint function ^
 } from "./lintingFunctions";
@@ -411,9 +413,7 @@ figma.ui.onmessage = msg => {
     switch (node.type) {
       case "SLICE":
       case "GROUP": {
-        // Groups styles apply to their children so we can skip this node type.
-        let errors = [];
-        return errors;
+        return lintGroupRules(node);
       }
       case "BOOLEAN_OPERATION":
       case "VECTOR": {
@@ -491,6 +491,14 @@ figma.ui.onmessage = msg => {
     return errors;
   }
 
+  function lintGroupRules(node) {
+    let errors = [];
+
+    checkGroup(node, errors);
+
+    return errors;
+  }
+
   function lintFrameRules(node) {
     let errors = [];
 
@@ -498,6 +506,7 @@ figma.ui.onmessage = msg => {
     checkStrokes(node, errors);
     checkRadius(node, errors, borderRadiusArray);
     checkEffects(node, errors);
+    checkAutoLayout(node, errors);
 
     return errors;
   }

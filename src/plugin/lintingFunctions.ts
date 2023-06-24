@@ -170,6 +170,32 @@ export function customCheckTextFills(node, errors) {
   }
 }
 
+export function checkGroup(node, errors) {
+  if (node.type === "GROUP") {
+    return errors.push(
+      createErrorObject(
+        node,
+        "group",
+        "Invalid Existence",
+        "Group is not allowed. Use Frame."
+      )
+    );
+  }
+}
+
+export function checkAutoLayout(node, errors) {
+  if (node.type === "FRAME" && node.layoutMode === "NONE") {
+    return errors.push(
+      createErrorObject(
+        node,
+        "frame",
+        "Missing Auto Layout",
+        "Did you forget it?"
+      )
+    );
+  }
+}
+
 // Check for effects like shadows, blurs etc.
 export function checkEffects(node, errors) {
   if (node.effects.length && node.visible === true) {
